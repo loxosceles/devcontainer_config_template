@@ -1,0 +1,7 @@
+[data]
+email="your@email.com"
+name= "Firstname Lastname"
+
+[sourceVCS]
+autopush=false
+autocommit=true
