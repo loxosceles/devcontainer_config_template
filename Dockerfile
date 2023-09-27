@@ -1,15 +1,14 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+# [Choice] Ubuntu version (use jammy on local arm64/Apple Silicon): jammy, focal
+ARG VARIANT="jammy"
+FROM buildpack-deps:${VARIANT}-curl
 
-WORKDIR /workspaces
+LABEL dev.containers.features="common"
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-  && apt-get -y install --no-install-recommends \
-  vim git libzip-dev unzip software-properties-common pip pylint ranger
+    && apt-get -y install --no-install-recommends git pip libzip-dev unzip software-properties-common ranger
 
 RUN pip install ipython
 
-COPY ./chezmoi.toml /home/vscode/.config/chezmoi/chezmoi.toml 
-RUN chown -R vscode:vscode /home/vscode/.config
+COPY post_create.sh /usr/src
+RUN chmod +x /usr/src/post_create.sh
 
-COPY ./post_create.sh /home/vscode/post_create.sh
-RUN chown -R vscode:vscode /home/vscode/post_create.sh

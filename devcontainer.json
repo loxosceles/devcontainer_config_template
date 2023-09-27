@@ -4,9 +4,17 @@
 	"name": "Docker in Docker",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build": {
-		"dockerfile": "Dockerfile"
+		"dockerfile": "Dockerfile",
+		"context": "."
 	},
 	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": "true",
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": "true"
+		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"moby": true,
 			"installDockerBuildx": true,
@@ -27,20 +35,13 @@
 		},
 		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
 			"plugins": "ssh-agent npm",
-			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/unixorn/fzf-zsh-plugin",
+			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/unixorn/fzf-zsh-plugin https://github.com/Nyquase/vi-mode",
 			"username": "vscode"
 		},
 		"ghcr.io/devcontainers-contrib/features/black:2": {
 			"version": "latest"
 		},
-		"ghcr.io/jungaretti/features/make:1": {},
-		"ghcr.io/devcontainers/features/python:1": {
-			"installTools": true,
-			"version": "latest"
-		},
-		"ghcr.io/oleksis/devcontainer-features/python-launcher:1": {
-			"version": "latest"
-		},
+		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/devcontainers/features/node:1": {
 			"nodeGypDependencies": true,
 			"version": "lts"
@@ -54,9 +55,12 @@
 		"ghcr.io/rio/features/chezmoi:1": {},
 		"ghcr.io/devcontainers-contrib/features/fzf:1": {
 			"version": "latest"
-		}
+		},
+		"ghcr.io/devcontainers-contrib/features/tmux-apt-get:1": {}
 	},
-	"forwardPorts": [],
+	"forwardPorts": [
+		5000
+	],
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -71,23 +75,30 @@
 				"infeng.vscode-react-typescript",
 				"morissonmaciel.typescript-auto-compiler",
 				"Gydunhn.typescript-essentials",
-				"ms-vscode.makefile-tools",
 				"usernamehw.errorlens",
-				"GitHub.copilot-nightly",
-				"fabiospampinato.vscode-todo-plus",
 				"ms-azuretools.vscode-docker",
 				"VisualStudioExptTeam.vscodeintellicode",
 				"Shelex.vscode-cy-helper",
 				"streetsidesoftware.code-spell-checker",
-				"atlassian.atlascode",
-				"GitHub.copilot-chat",
-				"GitHub.vscode-github-actions"
+				"redhat.vscode-yaml",
+				"riccardoNovaglia.missinglineendoffile",
+				"eamodio.gitlens",
+				"njpwerner.autodocstring",
+				"ms-python.mypy-type-checker",
+				"foxundermoon.shell-format"
 			],
-			"settings": {}
+			"settings": {
+				// "dotfiles.repository": "https: //github.com/loxosceles/dotfiles",
+				// "dotfiles.targetPath": "~/dotfiles",
+				// "dotfiles.installCommand": "~/dotfiles/install.sh"
+			}
 		}
 	},
+	"containerEnv": {
+		"CHEZMOI_DOTFILES_REPOSITORY": "https://github.com/loxosceles/dotfiles.git"
+	},
 	"initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
-	"postCreateCommand": "/bin/sh /home/vscode/post_create.sh",
+	"postCreateCommand": "/bin/sh /usr/src/post_create.sh",
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode"
 }
