@@ -95,7 +95,7 @@
 		}
 	},
 	"containerEnv": {
-		"CHEZMOI_DOTFILES_REPOSITORY": "https://github.com/loxosceles/dotfiles.git"
+		"CHEZMOI_DOTFILES_REPOSITORY": <Insert the link to your dotfiles repo here>
 	},
 	"initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
 	"postCreateCommand": "/bin/sh /usr/src/post_create.sh",
