@@ -6,7 +6,10 @@ This template includes [Chezmoi](https://www.chezmoi.io/) to automatically pull 
 
 ## How to use 
 
-- Update the `chezmoi.toml` file at the root of this project with your own email address and name
-- Create or locate your own dotfiles repository
+- Clone this repo in the root of your project.
+- Rename this local folder to `.devcontainer`.
+- Remove the `.git/` folder inside `.devcontainer`.
+- Update the `chezmoi.toml` file at the root of this project with your own email address and name.
+- Create or locate your own dotfiles repository.
 - Open the devcontainer.json and replace the placeholder under "containerDev -> CHEZMOI_DOTFILES_REPOSITORY" with your dotfiles repository.
 
