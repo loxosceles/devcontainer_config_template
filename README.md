@@ -1,6 +1,6 @@
 #Devcontainer Configuration Template
 
-Build a development container for Javascript and Python based projects.
+This template provides a blueprint for a development container for Javascript and Python based projects.
 
 This template includes [Chezmoi](https://www.chezmoi.io/) to automatically pull your own dot files.
 
