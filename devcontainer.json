@@ -1,8 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/docker-in-docker
 {
 	"name": "Docker in Docker",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "."
@@ -73,12 +70,9 @@
 				"esbenp.prettier-vscode",
 				"ms-vscode.vscode-typescript-next",
 				"infeng.vscode-react-typescript",
-				"morissonmaciel.typescript-auto-compiler",
 				"Gydunhn.typescript-essentials",
 				"usernamehw.errorlens",
 				"ms-azuretools.vscode-docker",
-				"VisualStudioExptTeam.vscodeintellicode",
-				"Shelex.vscode-cy-helper",
 				"streetsidesoftware.code-spell-checker",
 				"redhat.vscode-yaml",
 				"riccardoNovaglia.missinglineendoffile",
@@ -86,19 +80,13 @@
 				"njpwerner.autodocstring",
 				"ms-python.mypy-type-checker",
 				"foxundermoon.shell-format"
-			],
-			"settings": {
-				// "dotfiles.repository": "https: //github.com/loxosceles/dotfiles",
-				// "dotfiles.targetPath": "~/dotfiles",
-				// "dotfiles.installCommand": "~/dotfiles/install.sh"
-			}
+			]
 		}
 	},
 	"containerEnv": {
-		"CHEZMOI_DOTFILES_REPOSITORY": <Insert the link to your dotfiles repo here>
+		"CHEZMOI_DOTFILES_REPOSITORY": <INSERT THE LINK TO YOUR DOTFILES REPO HERE>
 	},
 	"initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
 	"postCreateCommand": "/bin/sh /usr/src/post_create.sh",
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode"
 }
