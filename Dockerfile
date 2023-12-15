@@ -9,6 +9,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 RUN pip install ipython
 
-COPY post_create.sh /usr/src
+COPY post_create.sh chezmoi.toml /usr/src/
 RUN chmod +x /usr/src/post_create.sh
 
