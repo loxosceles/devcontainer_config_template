@@ -68,7 +68,6 @@
 				"esbenp.prettier-vscode",
 				"ms-vscode.vscode-typescript-next",
 				"infeng.vscode-react-typescript",
-				"morissonmaciel.typescript-auto-compiler",
 				"Gydunhn.typescript-essentials",
 				"usernamehw.errorlens",
 				"ms-azuretools.vscode-docker",
@@ -84,7 +83,7 @@
 		}
 	},
 	"containerEnv": {
-		"CHEZMOI_DOTFILES_REPOSITORY": <Insert the link to your dotfiles repo here>
+		"CHEZMOI_DOTFILES_REPOSITORY": <INSERT THE LINK TO YOUR DOTFILES REPO HERE>
 	},
 	"initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
 	"postCreateCommand": "/bin/sh /usr/src/post_create.sh",
