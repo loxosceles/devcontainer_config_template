@@ -79,13 +79,29 @@
 				"ms-python.mypy-type-checker",
 				"foxundermoon.shell-format"
 			],
-			"settings": {}
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "tmux",
+				"editor.formatOnSave": true,
+				"editor.formatOnType": false,
+				"editor.formatOnPaste": true,
+				"editor.formatOnSaveMode": "file",
+				"files.autoSave": "onFocusChange",
+				"editor.codeActionsOnSave": [
+				"source.formatDocument",
+				"source.fixAll.eslint"
+				],
+				"[typescript][typescriptreact][javascript][javascriptreact]": {
+				"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+				"vs-code-prettier-eslint.prettierLast": false
+				}
+			}
 		}
 	},
-	"containerEnv": {
-		"CHEZMOI_DOTFILES_REPOSITORY": <INSERT THE LINK TO YOUR DOTFILES REPO HERE>
-	},
-	"initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
+	"runArgs": ["--env-file", ".devcontainer/.env"],
+	// "initializeCommand": "find ~/.ssh/ -type f -exec grep -l 'PRIVATE' {} \\; | xargs ssh-add",
+	"mounts": [
+    	"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind"
+  	],
 	"postCreateCommand": "/bin/sh /usr/src/post_create.sh",
 	"remoteUser": "vscode"
 }

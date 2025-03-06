@@ -1,6 +1,7 @@
 [data]
-email="your@email.com"
-name= "Firstname Lastname"
+email="dev@loxosceles.me"
+name= "Magnus Henkel"
+zsh_theme="robbyrussell"
 
 [sourceVCS]
 autopush=false
