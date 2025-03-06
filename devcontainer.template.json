@@ -55,7 +55,6 @@
 		},
 		"ghcr.io/devcontainers-contrib/features/tmux-apt-get:1": {}
 	},
-	// "forwardPorts": [],
 	"customizations": {
 		"vscode": {
 			"extensions": [
